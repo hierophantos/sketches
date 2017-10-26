@@ -1,0 +1,2 @@
+* Maude
+This directory is dedicated to sketches in the [[http://fsl.cs.illinois.edu/index.php/Term_Rewriting_and_Rewriting_Logic][rewriting logic]] programming language and framework, [[http://maude.cs.illinois.edu/][Maude]].

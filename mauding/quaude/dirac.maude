@@ -1,0 +1,20 @@
+fmod DIRAC-SIG is
+    pr DIOPHANTINE .
+    pr FLOAT .
+    sorts Bra Ket .
+    
+    __ Vector{Float} Vector{Float} -> VectorSet .
+    op <_| : VectorSet -> Bra .
+    op |_> : VectorSet -> Ket . 
+
+    --- a Ket represents a quantum state and is a vector that is a
+    --- complex linear combination of vectors
+
+    op norm : Bra -> 
+
+    
+    var S : VectorSet .
+    var V : VectorSpace .
+    
+    
+endfm
