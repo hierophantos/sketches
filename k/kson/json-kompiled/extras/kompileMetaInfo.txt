@@ -1,0 +1,1 @@
+{"mainSyntaxModuleName":"JSON","configVarDefaultSort":{"$PGM":"K@SORT-K"},"programStartSymbol":"K@SORT-K"}

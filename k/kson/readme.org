@@ -1,0 +1,15 @@
+#+TITLE: KSON
+
+A simple JSON parser in six lines of K.
+
+#+BEGIN_SRC sh
+kompile json.k
+krun test.json
+#+END_SRC
+
+should return the parsing in K:
+#+BEGIN_SRC k3
+
+<k> { ( "key" : "value" ) , ( ( "array" : [ ( "one" : "1" ) , ( ( "two" : "2" ) , ( ( 3 : "three" ) , .JSONList ) ) ] ) , .JSONList ) } </k>
+
+#+END_SRC
