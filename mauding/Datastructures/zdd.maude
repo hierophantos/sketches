@@ -1,0 +1,59 @@
+--- Zero-suppressed Decision Diagrams
+--- https://pdfs.semanticscholar.org/9593/6223362a16a50de2959475d87aefe2a1fec7.pdf
+--- https://www.wikiwand.com/en/Zero-suppressed_decision_diagram
+--- https://www.metalevel.at/prolog/attributedvariables
+
+fmod ZDD{X :: Triv} is
+    protecting Nat .
+    protecting Bool .
+
+    sorts CombSet .
+    subsorts EmptySet < CombSet .
+
+    ops Subset1 Subset0 Change : 
+    ops Union Intsec Diff : CombSet CombSet -> CombSet .
+    op  Count : CombSet -> Nat .
+
+    op empty : -> EmptySet .
+
+    vars P Q P1 P0 : CombSet .
+    var Var : Bool .
+    
+    op 1 : -> true .
+    op 0 : -> false .
+
+    op Getnode : .
+    
+
+
+endfm
+
+
+
+---(_______________Notes______________________________________________
+ZDD is a DAG such that
+  1. Terminal Nodes:
+     is either true or false
+  2. Nonterminal Nodes:
+    a. labelled with a positive integer V. Label does not have to be unique
+    b. has an out-degree of 2, named "LO" and "HI", respectively
+    c. destination node is either terminal has labeled > V. Thus edge 
+        direction can be infered from labels
+    d. The HI edge never points to the false node
+  3. Root Node:
+    • Unique node
+    • Zero in-degrees
+    • Either terminal (Empty?) or labelled with smallest integer
+  4. If two nodes have the same label, ther their LO or HI edges point
+      to different nodes. That is, there are no redundant nodes
+
+Representing Combination Sets:
+
+  We can represent combination sets efficiently by applying two
+    rules to the BDDs:
+  1. Eliminate all the nodes whose 1-edge points to the 0-terminal node.
+      Then connect the edge to the other subgraph directly. (Fig. 1)
+  2. Share all equivalent sub-graphs the same as for DBBs.  (Fig. 2)
+
+
+_____________________________________________________________________)
